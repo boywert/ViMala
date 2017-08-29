@@ -16,33 +16,34 @@ $stmt = $conn->stmt_init();
 
 if(!$stmt->prepare("SELECT ID,TIME,STATUS FROM JobSubmission WHERE USER = ?;")) {
     print "Failed to prepare statement\n";
-}
-$stmt->bind_param("i", $user_id);
-if ($stmt->execute())
-    echo "executed successfully\n";
-  
-$result = $stmt->get_result();
-print_r($result);
-echo $result->num_rows;
-if ($result->num_rows > 0) {
-    $content = $content . "<table><tr><th>Job ID</th><th>Time added</th><th>Status</th></tr>";
-    while ($row = $result->fetch_assoc()) {
-	if ($row['STATUS'] == 0 )
-	    $status = "Queueing";
-	if ($row['STATUS'] == 1 )
-	    $status = "Completed";
-	if ($row['STATUS'] == 2 )
-	    $status = "Cancelled by user";
-	if ($row['STATUS'] == 3 )
-	    $status = "Cancelled by system";
-	$content = $content . "<tr><td>".$row["ID"]."</td><td>".$row["TIME"]."</td><td>".$status."</td></tr>";
-    }
-    $content = $content . "</table>";
 } else {
-    $content = $content . "There is no job submitted.";
+    $stmt->bind_param("i", $user_id);
+    if ($stmt->execute())
+	echo "executed successfully\n";
+    
+    $result = $stmt->get_result();
+    print_r($result);
+    echo $result->num_rows;
+    if ($result->num_rows > 0) {
+	$content = $content . "<table><tr><th>Job ID</th><th>Time added</th><th>Status</th></tr>";
+	while ($row = $result->fetch_assoc()) {
+	    if ($row['STATUS'] == 0 )
+		$status = "Queueing";
+	    if ($row['STATUS'] == 1 )
+		$status = "Completed";
+	    if ($row['STATUS'] == 2 )
+		$status = "Cancelled by user";
+	    if ($row['STATUS'] == 3 )
+		$status = "Cancelled by system";
+	    $content = $content . "<tr><td>".$row["ID"]."</td><td>".$row["TIME"]."</td><td>".$status."</td></tr>";
+	}
+	$content = $content . "</table>";
+    } else {
+	$content = $content . "There is no job submitted.";
+    }
+    echo $content;
+    $result->free();
 }
-echo $content;
-$result->free();
 $stmt->close();
 $conn->close();
 ?>
