@@ -12,7 +12,9 @@ else
 
 
 $content = "<b>Username:</b>&nbsp;&nbsp;&nbsp;&nbsp<br><br>\n";
+echo $content;
 $result = $stmt->get_result();
+
 if ($result->num_rows > 0) {
     $content = $content . "<table><tr><th>Job ID</th><th>Time added</th><th>Status</th></tr>";
     while ($row = $result->fetch_assoc()) {
@@ -30,7 +32,6 @@ if ($result->num_rows > 0) {
 } else {
     $content = $content . "There is no job submitted.";
 }
-echo $content;
 $result->free();
 
 $stmt->close();
