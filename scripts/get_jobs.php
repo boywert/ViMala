@@ -13,12 +13,13 @@ $conn = new mysqli($servername, $username, $password, $db_name);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-echo "Connected successfully";
+echo "Connected successfully\n";
 
 // $mysqli = new mysqli("192.168.2.48", "ViMala", "ViMala@Sql", "ViMala");
-// $stmt = $mysqli->prepare("SELECT ID,TIME,STATUS FROM JobSubmission WHERE USER = ?");
-// $stmt->bind_param("i", $user_id);
-// $stmt->execute()
+$stmt = $conn->prepare("SELECT ID,TIME,STATUS FROM JobSubmission WHERE USER = ?");
+$stmt->bind_param("i", $user_id);
+if ($stmt->execute())
+    echo "executed successfully";
   
 // $content = "<b>Username:</b>&nbsp;&nbsp;&nbsp;&nbsp<br><br>\n";
 
