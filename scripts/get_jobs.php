@@ -21,10 +21,9 @@ if ($stmt->execute())
   
 $result = $stmt->get_result();
 print_r($result);
-
+echo $result->num_rows;
 if ($result->num_rows > 0) {
     $content = $content . "<table><tr><th>Job ID</th><th>Time added</th><th>Status</th></tr>";
-    echo $content;
     while ($row = $result->fetch_assoc()) {
 	if ($row['STATUS'] == 0 )
 	    $status = "Queueing";
