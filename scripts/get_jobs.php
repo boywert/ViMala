@@ -8,7 +8,8 @@ $stmt->execute()
 $content = "<b>Username:</b>&nbsp;&nbsp;&nbsp;&nbsp<br><br>\n";
 
 $result = $stmt->get_result();
-var_dump($result);
+
+echo $result;
 if ($result->num_rows > 0) {
     $content = $content . "<table><tr><th>Job ID</th><th>Time added</th><th>Status</th></tr>";
     echo $content;
