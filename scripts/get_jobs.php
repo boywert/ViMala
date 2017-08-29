@@ -12,9 +12,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 echo "Connected successfully\n";
+$stmt = $conn->stmt_init();
 
-
-$stmt = $conn->prepare("SELECT ID,TIME,STATUS FROM JobSubmission WHERE USER = ?;");
+if(!$stmt->prepare("SELECT ID,TIME,STATUS FROM JobSubmission WHERE USER = ?;")) {
+    print "Failed to prepare statement\n";
+}
 $stmt->bind_param("i", $user_id);
 if ($stmt->execute())
     echo "executed successfully\n";
