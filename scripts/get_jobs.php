@@ -5,9 +5,7 @@ $user_id = 1;
 $mysqli = new mysqli("192.168.2.48", "ViMala", "ViMala@Sql", "ViMala");
 $stmt = $mysqli->prepare("SELECT ID,TIME,STATUS FROM JobSubmission WHERE USER = ?");
 $stmt->bind_param("i", $user_id);
-if ($stmt->execute())
-    echo "oh yeah";
-else
+if (!($stmt->execute()))
     echo "oh no";
 
 
@@ -17,6 +15,7 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $content = $content . "<table><tr><th>Job ID</th><th>Time added</th><th>Status</th></tr>";
+    echo $content;
     while ($row = $result->fetch_assoc()) {
 	if ($row['STATUS'] == 0 )
 	    $status = "Queueing";
@@ -32,7 +31,7 @@ if ($result->num_rows > 0) {
 } else {
     $content = $content . "There is no job submitted.";
 }
-echo $content;
+
 $result->free();
 
 $stmt->close();
