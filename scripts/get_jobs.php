@@ -12,7 +12,7 @@ else
 
 
 $content = "<b>Username:</b>&nbsp;&nbsp;&nbsp;&nbsp<br><br>\n";
-echo $content;
+
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
@@ -32,6 +32,7 @@ if ($result->num_rows > 0) {
 } else {
     $content = $content . "There is no job submitted.";
 }
+echo $content;
 $result->free();
 
 $stmt->close();
