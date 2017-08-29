@@ -5,23 +5,16 @@ $username = "ViMala";
 $password = "ViMala@Sql";
 $db_name = "ViMala";
 // Create connection
-$conn = new mysqli($servername, $username, $password, $db_name);
+$mysqli = new mysqli($servername, $username, $password, $db_name);
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 echo "Connected successfully\n";
-$stmt = $conn->stmt_init();
-
-if(!$stmt->prepare("SELECT ID,TIME,STATUS FROM JobSubmission WHERE USER = ?")) {
+if(!($result = $mysqli->query("SELECT ID,TIME,STATUS FROM JobSubmission WHERE STATUS = 0"))) {
     print "Failed to prepare statement\n";
 } else {
-    $stmt->bind_param("i", $user_id);
-    if ($stmt->execute())
-	echo "executed successfully\n";
-    
-    $result = $stmt->get_result();
     print_r($result);
     echo $result->num_rows;
     if ($result->num_rows > 0) {
