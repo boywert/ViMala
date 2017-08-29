@@ -1,7 +1,5 @@
 <?php
-phpinfo();
 $user_id = 1;
-
 $servername = "192.168.2.48";
 $username = "ViMala";
 $password = "ViMala@Sql";
@@ -16,7 +14,7 @@ if ($conn->connect_error) {
 echo "Connected successfully\n";
 
 // $mysqli = new mysqli("192.168.2.48", "ViMala", "ViMala@Sql", "ViMala");
-$stmt = $conn->prepare("SELECT ID,TIME,STATUS FROM JobSubmission WHERE USER = ?");
+$stmt = $conn->prepare("SELECT ID,TIME,STATUS FROM JobSubmission WHERE USER = ?;");
 $stmt->bind_param("i", $user_id);
 if ($stmt->execute())
     echo "executed successfully\n";
