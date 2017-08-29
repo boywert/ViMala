@@ -1,6 +1,4 @@
 <?php
-
-echo "test";
 $user_id = 1;
 $mysqli = new mysqli("192.168.2.48", "ViMala", "ViMala@Sql", "ViMala");
 $stmt = $mysqli->prepare("SELECT ID,TIME,STATUS FROM JobSubmission WHERE USER = ?");
