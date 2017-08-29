@@ -28,7 +28,7 @@ if(!($result = $mysqli->query("SELECT ID,TIME,STATUS FROM JobSubmission WHERE ST
 		$status = "Cancelled by user";
 	    if ($row['STATUS'] == 3 )
 		$status = "Cancelled by system";
-	    $content = $content . "<tr><td>".$row["ID"]."</td><td>".$row["TIME"]."</td><td>".$status."</td></tr>";
+	    $content = $content . "<tr><td>".$row["ID"]."</td><td>".$row["TIME"]."</td><td>".$status."</td></tr>\n";
 	}
 	$content = $content . "</table>";
     } else {
