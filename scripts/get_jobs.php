@@ -30,6 +30,7 @@ if ($result->num_rows > 0) {
 } else {
     $content = $content . "There is no job submitted.";
 }
+echo $content;
 $result->free();
 
 $stmt->close();
