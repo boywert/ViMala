@@ -5,9 +5,9 @@ $user_id = 1;
 $servername = "192.168.2.48";
 $username = "ViMala";
 $password = "ViMala@Sql";
-
+$db_name = "ViMala";
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password, $db_name);
 
 // Check connection
 if ($conn->connect_error) {
