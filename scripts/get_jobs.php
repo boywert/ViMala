@@ -1,5 +1,5 @@
 <?php
-
+phpinfo();
 $user_id = 1;
 
 $servername = "192.168.2.48";
@@ -19,12 +19,12 @@ echo "Connected successfully\n";
 $stmt = $conn->prepare("SELECT ID,TIME,STATUS FROM JobSubmission WHERE USER = ?");
 $stmt->bind_param("i", $user_id);
 if ($stmt->execute())
-    echo "executed successfully";
+    echo "executed successfully\n";
   
 // $content = "<b>Username:</b>&nbsp;&nbsp;&nbsp;&nbsp<br><br>\n";
 
-// $result = $stmt->get_result();
-
+$result = $stmt->get_result();
+print_r($result);
 // echo $result;
 // if ($result->num_rows > 0) {
 //     $content = $content . "<table><tr><th>Job ID</th><th>Time added</th><th>Status</th></tr>";
