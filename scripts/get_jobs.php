@@ -1,16 +1,16 @@
 <?php
-echo "first";
+echo "first\n";
 $servername = "192.168.2.48";
 $username = "ViMala";
 $password = "ViMala@Sql";
 $db_name = "ViMala";
 // // Create connection
 $mysqli = new mysqli($servername, $username, $password, $db_name);
-echo "bla";
+echo "bla\n";
 // // Check connection
-// if ($mysqli->connect_error) {
-//     die("Connection failed: " . $mysqli->connect_error);
-// }
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
 // echo "Connected successfully\n";
 // if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
 //     echo " test";
