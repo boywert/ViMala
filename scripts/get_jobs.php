@@ -8,9 +8,9 @@ $db_name = "ViMala";
 $mysqli = new mysqli($servername, $username, $password, $db_name);
 
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
 echo "Connected successfully\n";
 if(!($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0"))) {
     print "Failed to prepare statement\n";
