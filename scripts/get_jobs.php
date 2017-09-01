@@ -23,5 +23,5 @@ if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
 } else 
     print "Failed to prepare statement\n";
 $result->free(); 
-$conn->close();
+$mysqli->close();
 ?>
