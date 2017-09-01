@@ -1,4 +1,5 @@
 <?php
+echo "first";
 $servername = "192.168.2.48";
 $username = "ViMala";
 $password = "ViMala@Sql";
