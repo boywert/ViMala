@@ -1,24 +1,24 @@
 <?php
-echo "first\n";
+//echo "first\n";
 $servername = "192.168.2.48";
 $username = "ViMala";
 $password = "ViMala@Sql";
 $db_name = "ViMala";
 // // Create connection
 $mysqli = new mysqli($servername, $username, $password, $db_name);
-echo "bla\n";
+//echo "bla\n";
 // // Check connection
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
-echo "Connected successfully\n";
+//echo "Connected successfully\n";
 if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
-    echo " test\n";
+    //    echo " test\n";
     if ($result->num_rows > 0) { 
 	echo "more than 0\n";
  	while ($row = $result->fetch_assoc()) {
-// 	    $field_array = explode($row['PARAMS'],"|");
- 	    print_r($row);
+ 	    $field_array = explode($row['PARAMS'],"|");
+ 	    print_r($field_array);
  	}
     }
 }
