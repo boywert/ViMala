@@ -1,5 +1,4 @@
 <?php
-$user_id = 1;
 $servername = "192.168.2.48";
 $username = "ViMala";
 $password = "ViMala@Sql";
@@ -23,6 +22,5 @@ if(!($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0"))) 
 	}
     $result->free();
 }
-$stmt->close();
 $conn->close();
 ?>
