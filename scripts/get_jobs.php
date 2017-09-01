@@ -15,6 +15,7 @@ echo "Connected successfully\n";
 if(!($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0"))) {
     print "Failed to prepare statement\n";
 } else {
+    echo " test";
     if ($result->num_rows > 0) {
 	while ($row = $result->fetch_assoc()) {
 	    $field_array = explode($row['PARAMS'],"|");
