@@ -5,7 +5,7 @@ $username = "ViMala";
 $password = "ViMala@Sql";
 $db_name = "ViMala";
 // // Create connection
-// $mysqli = new mysqli($servername, $username, $password, $db_name);
+$mysqli = new mysqli($servername, $username, $password, $db_name);
 // echo "bla";
 // // Check connection
 // if ($mysqli->connect_error) {
@@ -23,5 +23,5 @@ $db_name = "ViMala";
 // } else 
 //     print "Failed to prepare statement\n";
 // $result->free(); 
-// $mysqli->close();
+$mysqli->close();
 ?>
