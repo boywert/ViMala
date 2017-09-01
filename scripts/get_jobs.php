@@ -19,7 +19,8 @@ if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
  	while ($row = $result->fetch_assoc()) {
 	    $row['PARAMS'][0] = "";
  	    $field_array = explode("|",$row['PARAMS']);
- 	    print_r($field_array);
+ 	    unset($field_array[count($field_array)-1]);
+	    print_r($field_array);
  	}
     }
 }
