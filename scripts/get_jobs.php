@@ -12,8 +12,9 @@ if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 echo "Connected successfully\n";
-// if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
-//     echo " test";
+if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
+    echo " test";
+}
 //     if ($result->num_rows > 0) {
 // 	while ($row = $result->fetch_assoc()) {
 // 	    $field_array = explode($row['PARAMS'],"|");
