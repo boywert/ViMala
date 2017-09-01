@@ -8,8 +8,7 @@ def main():
     c = conn.cursor()
     c.execute(sql)
     for row in c:
-        print row[0]
-
+        print row
     return 0
 
 if __name__ == "__main__":
