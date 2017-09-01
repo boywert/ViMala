@@ -13,9 +13,10 @@ if ($mysqli->connect_error) {
 }
 echo "Connected successfully\n";
 if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
-    echo " test";
+    echo " test\n";
+    if ($result->num_rows > 0) 
+	echo "more than 0\n";
 }
-//     if ($result->num_rows > 0) {
 // 	while ($row = $result->fetch_assoc()) {
 // 	    $field_array = explode($row['PARAMS'],"|");
 // 	    print_r($field_array);
