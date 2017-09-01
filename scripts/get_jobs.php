@@ -23,7 +23,7 @@ if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
 	    $string = implode(",", $field_array);
 	    $conds = $mysqli->real_escape_string($row['CONDITIONS']);
 	    $sql = "SELECT ". $string . "FROM JobSubmission WHERE ". $cond;
-	    echo $result;
+	    echo $sql;
  	}
     }
 }
