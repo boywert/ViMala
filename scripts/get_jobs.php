@@ -22,7 +22,8 @@ if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
  	    unset($field_array[count($field_array)-1]);
 	    $string = implode(",", $field_array);
 	    $conds = $mysqli->real_escape_string($row['CONDITIONS']);
-	    $sql = "SELECT ". $string . " FROM JobSubmission WHERE ". $cond;
+	    $sql = "SELECT ". $string . " FROM Lightcone WHERE ". $cond;
+	    echo $sql;
  	}
     }
 }
