@@ -8,9 +8,7 @@ def main():
     c = conn.cursor()
     cursor = c.execute(sql)
     result = cursor.fetchall()
-    for r in result:
-        print r
-    return 0
+    print len(result)
 
 if __name__ == "__main__":
     main()
