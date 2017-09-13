@@ -7,8 +7,7 @@ def main():
     conn = sqlite3.connect('/share/data2/VIMALA/Lightcone/example.db')
     c = conn.cursor()
     cursor = c.execute(sql)
-    for row in cursor:
-        print row[0],row[1]
+    print cursor.num_row()
     return 0
 
 if __name__ == "__main__":
