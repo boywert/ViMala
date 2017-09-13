@@ -6,8 +6,8 @@ def main():
     print "Reading SQLite3 table"
     conn = sqlite3.connect('/share/data2/VIMALA/Lightcone/example.db')
     c = conn.cursor()
-    c.execute(sql)
-    for row in c:
+    cursor = c.execute(sql)
+    for row in cursor:
         print row[0],row[1]
     return 0
 
