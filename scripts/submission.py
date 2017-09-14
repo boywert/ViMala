@@ -15,6 +15,7 @@ def main():
     ax = fig.add_subplot(111, polar=True)
     ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=",")
     ax.grid(True)
+    ax.set_ylim(1230,1420)
     fig.savefig("lightcone.png")
     return 0
 if __name__ == "__main__":
