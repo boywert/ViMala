@@ -2,6 +2,7 @@ import sqlite3
 import sys
 import numpy 
 import matplotlib.pyplot as plt
+f21cm  = 1420.4057517667
 def main():
     job_id = sys.argv[1]
     sql = sys.argv[2]
@@ -13,7 +14,7 @@ def main():
     coor = numpy.array(result)
     fig = plt.figure(figsize=(8, 6),dpi=240)
     ax = fig.add_subplot(111, polar=True)
-    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".")
+    ax.scatter(coor[:,1]/numpy.pi*180,f21cm/coor[:,0]-1,s=0.1,marker=".")
     ax.grid(True)
     ax.set_ylim(0.0,0.16)
     fig.savefig("lightcone.png")
