@@ -11,7 +11,7 @@ def main():
     cursor = c.execute(sql)
     result = cursor.fetchall()
     fig = plt.figure()
-    ax = fig.subplot(111, projection='polar')
+    ax = fig.add_subplot(111, projection='polar')
     ax.plot(result[:][0],result[:][1])
     ax.grid(True)
     fig.save("lightcone.png")
