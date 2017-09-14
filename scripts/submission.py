@@ -11,7 +11,7 @@ def main():
     cursor = c.execute(sql)
     result = cursor.fetchall()
     coor = numpy.array(result)
-    fig = plt.figure(800,800)
+    fig = plt.figure(figsize=(8, 6),dpi=240)
     ax = fig.add_subplot(111, polar=True)
     ax.scatter(coor[:,0],coor[:,1]/numpy.pi*180,s=0.1,marker=",")
     ax.grid(True)
