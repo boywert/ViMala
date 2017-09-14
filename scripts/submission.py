@@ -2,7 +2,7 @@ import sqlite3
 import sys
 import numpy
 import matplotlib
-matplotlib.rcParams.update({'font.size': 14})
+matplotlib.rcParams.update({'font.size': 4})
 import matplotlib.pyplot as plt
 f21cm  = 1420.4057517667
 def main():
@@ -16,7 +16,7 @@ def main():
     coor = numpy.array(result)
     fig = plt.figure(figsize=(8, 6),dpi=240)
     ax = fig.add_subplot(111, polar=True)
-    ax.scatter(coor[:,1]/numpy.pi*180,f21cm/coor[:,0]-1,s=0.1,marker=".")
+    ax.scatter(coor[:,1]/numpy.pi*180,f21cm/coor[:,0]-1,s=0.1,marker=".",color="k")
     ax.grid(True)
     ax.set_ylim(0.0,0.16)
     ax.set_rlabel_position(0)
