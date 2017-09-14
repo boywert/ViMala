@@ -11,9 +11,9 @@ def main():
     cursor = c.execute(sql)
     result = cursor.fetchall()
     coor = numpy.array(result)
-    fig = plt.figure()
+    fig = plt.figure(800,800)
     ax = fig.add_subplot(111, polar=True)
-    ax.scatter(coor[:,0],coor[:,1]/numpy.pi*180,s=0.1,marker=".")
+    ax.scatter(coor[:,0],coor[:,1]/numpy.pi*180,s=0.1,marker=",")
     ax.grid(True)
     fig.savefig("lightcone.png")
     return 0
