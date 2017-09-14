@@ -1,6 +1,8 @@
 import sqlite3
 import sys
-import numpy 
+import numpy
+import matplotlib
+matplotlib.rcParams.update({'font.size': 14})
 import matplotlib.pyplot as plt
 f21cm  = 1420.4057517667
 def main():
@@ -17,7 +19,6 @@ def main():
     ax.scatter(coor[:,1]/numpy.pi*180,f21cm/coor[:,0]-1,s=0.1,marker=".")
     ax.grid(True)
     ax.set_ylim(0.0,0.16)
-    ax.set_xlabel('z', fontsize=12)
     ax.set_rlabel_position(0)
     fig.savefig("lightcone.png")
     return 0
