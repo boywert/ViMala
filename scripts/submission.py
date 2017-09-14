@@ -14,7 +14,7 @@ def main():
     ax = fig.add_subplot(111, projection='polar')
     ax.plot(result[:][0],result[:][1])
     ax.grid(True)
-    fig.save("lightcone.png")
+    fig.savefig("lightcone.png")
     return 0
 if __name__ == "__main__":
     main()
