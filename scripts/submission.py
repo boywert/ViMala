@@ -10,9 +10,10 @@ def main():
     c = conn.cursor()
     cursor = c.execute(sql)
     result = cursor.fetchall()
+    coor = numpy.array(result)
     fig = plt.figure()
     ax = fig.add_subplot(111, polar=True)
-    ax.scatter(result[:,0],result[:,1])
+    ax.scatter(result[:,0],result[:,1]/numpy.pi*180)
     ax.grid(True)
     fig.savefig("lightcone.png")
     return 0
