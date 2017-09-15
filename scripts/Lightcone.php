@@ -19,19 +19,19 @@ def main():
     result = cursor.fetchall()
     coor = numpy.array(result)
     print len(coor)
-    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".",color="r")
+    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".",color="k",alpha=0.1)
     sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (Flux < 520 AND Flux >= 170 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
     cursor = c.execute(sql)
     result = cursor.fetchall()
     coor = numpy.array(result)
     print len(coor)
-    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".",color="k")
+    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".",color="r",alpha=0.2)
     sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (Flux < 1700 AND Flux >=540 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
     cursor = c.execute(sql)
     result = cursor.fetchall()
     coor = numpy.array(result)
     print len(coor)
-    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".",color="g")
+    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".",color="g",alpha=0.3)
     sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (Flux >= 1700 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
     cursor = c.execute(sql)
     result = cursor.fetchall()
