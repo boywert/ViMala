@@ -22,7 +22,7 @@ def main():
     #    print a
     fig = plt.figure(figsize=(8, 6),dpi=240)
     ax = fig.add_subplot(111, polar=True)
-    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".")
+    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".",color="r")
     ax.grid(True)
     ax.set_ylim(0.0,0.16)
     ax.set_rlabel_position(0)
