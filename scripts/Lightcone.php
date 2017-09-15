@@ -25,19 +25,19 @@ def main():
     result = cursor.fetchall()
     coor = numpy.array(result)
     print len(coor)
-    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".",color="r",alpha=0.3)
+    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.2,marker=".",color="b",alpha=0.3)
     sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (Flux < 1700 AND Flux >=540 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
     cursor = c.execute(sql)
     result = cursor.fetchall()
     coor = numpy.array(result)
     print len(coor)
-    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".",color="g",alpha=0.6)
+    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.3,marker=".",color="g")
     sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (Flux >= 1700 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
     cursor = c.execute(sql)
     result = cursor.fetchall()
     coor = numpy.array(result)
     print len(coor)
-    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".",color="b")
+    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.4,marker=".",color="r")
     
     ax.grid(True)
     ax.set_ylim(0.0,0.16)
