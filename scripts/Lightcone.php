@@ -11,25 +11,28 @@ def main():
     ax = fig.add_subplot(111, polar=True)
     conn = sqlite3.connect('/share/data2/VIMALA/Lightcone/example.db')
     c = conn.cursor()
-    sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (Flux >= 1700 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
+    
+    
+    
+    sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (Flux < 170 AND Flux >= 50 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
     cursor = c.execute(sql)
     result = cursor.fetchall()
     coor = numpy.array(result)
     print len(coor)
     ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".",color="r")
+    sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (Flux < 520 AND Flux >= 170 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
+    cursor = c.execute(sql)
+    result = cursor.fetchall()
+    coor = numpy.array(result)
+    print len(coor)
+    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".",color="k")
     sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (Flux < 1700 AND Flux >=540 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
     cursor = c.execute(sql)
     result = cursor.fetchall()
     coor = numpy.array(result)
     print len(coor)
     ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".",color="g")
-    sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (Flux < 520 AND Flux >= 170 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
-    cursor = c.execute(sql)
-    result = cursor.fetchall()
-    coor = numpy.array(result)
-    print len(coor)
-    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".",color="b")
-    sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (Flux < 170 AND Flux >= 50 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
+    sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (Flux >= 1700 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
     cursor = c.execute(sql)
     result = cursor.fetchall()
     coor = numpy.array(result)
