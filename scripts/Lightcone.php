@@ -37,7 +37,7 @@ def main():
     result = cursor.fetchall()
     coor = numpy.array(result)
     print len(coor)
-    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.5,marker=".",color="r")
+    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.6,marker=".",color="r")
     
     ax.grid(True)
     ax.set_ylim(0.0,0.16)
