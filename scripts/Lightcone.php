@@ -52,19 +52,19 @@ def main():
     coor = numpy.array(result)
     print len(coor)
     ax2.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".",color="g",alpha=0.1)
-    sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (FluxDensity < 5.2e-4 AND Flux >= 1.70e-4 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
+    sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (FluxDensity < 5.2e-4 AND FluxDensity >= 1.70e-4 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
     cursor = c.execute(sql)
     result = cursor.fetchall()
     coor = numpy.array(result)
     print len(coor)
     ax2.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.2,marker=".",color="k",alpha=0.4)
-    sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (Flux < 1.7e-3 AND Flux >=5.40e-4 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
+    sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (FluxDensity < 1.7e-3 AND FluxDensity >=5.40e-4 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
     cursor = c.execute(sql)
     result = cursor.fetchall()
     coor = numpy.array(result)
     print len(coor)
     ax2.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.4,marker=".",color="b",alpha=0.7)
-    sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (Flux >= 1.7e-3 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
+    sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (FluxDensity >= 1.7e-3 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
     cursor = c.execute(sql)
     result = cursor.fetchall()
     coor = numpy.array(result)
