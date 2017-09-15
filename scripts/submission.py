@@ -15,8 +15,8 @@ def main():
     result = cursor.fetchall()
     coor = numpy.array(result)
     print len(coor)
-    for a in coor:
-        print a
+    #for a in coor:
+    #    print a
     fig = plt.figure(figsize=(8, 6),dpi=240)
     ax = fig.add_subplot(111, polar=True)
     ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".")
