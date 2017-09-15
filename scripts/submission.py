@@ -8,7 +8,7 @@ f21cm  = 1420.4057517667
 def main():
     job_id = sys.argv[1]
     sql = sys.argv[2]
-    sql = "SELECT Postheta,Redshift FROM Lightcone"
+    sql = "SELECT PosPhi,Redshift FROM Lightcone"
     
     print "Reading SQLite3 table"
     conn = sqlite3.connect('/share/data2/VIMALA/Lightcone/example.db')
@@ -17,8 +17,8 @@ def main():
     result = cursor.fetchall()
     coor = numpy.array(result)
     print len(coor)
-    a = numpy.histogram(coor[:,0]/numpy.pi*180,bins=180)
-    print a
+    print numpy.histogram(coor[:,0]/numpy.pi*180,bins=180)
+    print numpy.histogram(coor[:,1],bins=18)
     #for a in coor:
     #    print a
     # fig = plt.figure(figsize=(8, 6),dpi=240)
