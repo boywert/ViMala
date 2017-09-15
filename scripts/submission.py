@@ -8,7 +8,7 @@ f21cm  = 1420.4057517667
 def main():
     job_id = sys.argv[1]
     sql = sys.argv[2]
-    sql = "SELECT PosPhi,Redshift FROM Lightcone"
+    sql = "SELECT PosTheta,Redshift FROM Lightcone"
     
     print "Reading SQLite3 table"
     conn = sqlite3.connect('/share/data2/VIMALA/Lightcone/example.db')
