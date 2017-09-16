@@ -9,7 +9,7 @@ def main():
     print "Reading SQLite3 table"
     conn = sqlite3.connect('/share/data2/VIMALA/Lightcone/example.db')
     c = conn.cursor()
-    sql = "SELECT PosTheta,Redshift FROM Lightcone WHERE ((StellarMass > 1e10) AND (PosPhi > 0.0*(3.142/180.0) AND PosPhi < 30.0*(3.142/180.0)))"
+    sql = "SELECT PosTheta,Redshift FROM Lightcone WHERE ((StellarMass > 1e10) AND (PosPhi > 0.0*(3.142/180.0) AND PosPhi < 5.0*(3.142/180.0)))"
     cursor = c.execute(sql)
     result = cursor.fetchall()
     coor = numpy.array(result)
