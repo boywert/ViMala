@@ -85,7 +85,11 @@ def main():
     result = numpy.log10(numpy.array(result))
     hist = numpy.histogram(result,bins=20)
     print len(hist[0]),len(hist[1])
-    print hist
+    y = hist[0]
+    x = numpy.zeros_like(y)
+    for i in range(len(hist[0])):
+        x[i] = 0.5*(hist[1,i]+hist[1,i+1])
+    print x,y
     return 0
 if __name__ == "__main__":
     main()
