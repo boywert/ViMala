@@ -94,8 +94,8 @@ def main():
     print x,y
     ax1.plot(x,y,"-")
     ax1.set_yscale("log")
-    ax1.set_xlabel(r"$\log_10 \Delta \nu$")
-    ax1.set_ylabel(r"$\log_10 N$")
+    ax1.set_xlabel(r"$\log_{10} \Delta \nu$")
+    ax1.set_ylabel(r"$\log_{10} N$")
     fig.savefig("DeltaF.pdf")
     return 0
 if __name__ == "__main__":
