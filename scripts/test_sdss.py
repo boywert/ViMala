@@ -6,8 +6,6 @@ matplotlib.rcParams.update({'font.size': 6})
 import matplotlib.pyplot as plt
 f21cm  = 1420.4057517667
 def main():
-    job_id = sys.argv[1]
-    sql = sys.argv[2]
     print "Reading SQLite3 table"
     conn = sqlite3.connect('/share/data2/VIMALA/Lightcone/example.db')
     c = conn.cursor()
