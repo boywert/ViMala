@@ -26,7 +26,7 @@ def main():
     ax.grid(True)
     ax.set_ylim(0.0,0.16)
     ax.set_rlabel_position(0)
-    fig.savefig("lightcone.png")
+    fig.savefig("sdss.png")
     return 0
 if __name__ == "__main__":
     main()
