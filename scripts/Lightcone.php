@@ -78,18 +78,25 @@ def main():
 
     
     # fig.savefig("lightcone.png")
+    # close(fig)
+    fig = plt.figure()
 
+    ax1 = fig.add_subplot(111)
     sql = "SELECT DeltaFrequency FROM Lightcone WHERE ((PosTheta > 70.0*(3.142/180.0) AND PosTheta < 80.0*(3.142/180.0)))"
     cursor = c.execute(sql)
     result = cursor.fetchall()
     result = numpy.log10(numpy.array(result))
     hist = numpy.histogram(result,bins=20)
-    print len(hist[0]),len(hist[1])
     y = hist[0]
     x = numpy.zeros_like(y,dtype=numpy.float32)
     for i in range(len(hist[0])):
         x[i] = 0.5*(hist[1][i]+hist[1][i+1])
     print x,y
+    ax1.plot(x,y,"-")
+    ax1.set_yscale("log")
+    ax1.set_xlabel(r"$\log_10 \Delta \nu$")
+    ax1.set_ylabel(r"$\log_10 N$")
+    fig.savefig("DeltaF.pdf")
     return 0
 if __name__ == "__main__":
     main()
