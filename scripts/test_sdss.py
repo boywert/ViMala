@@ -14,8 +14,6 @@ def main():
     result = cursor.fetchall()
     coor = numpy.array(result)
     print len(coor)
-    print numpy.histogram(coor[:,0]/numpy.pi*180,bins=180)
-    print numpy.histogram(coor[:,1],bins=18)
     #for a in coor:
     #    print a
     fig = plt.figure(figsize=(8, 8),dpi=240)
