@@ -83,7 +83,7 @@ def main():
     cursor = c.execute(sql)
     result = cursor.fetchall()
     result = numpy.log10(numpy.array(result))
-    hist = numpy.histogram(result)
+    hist = numpy.histogram(result,bin=20)
     print hist
     return 0
 if __name__ == "__main__":
