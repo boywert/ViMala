@@ -2,7 +2,7 @@ import sqlite3
 import sys
 import numpy
 import matplotlib
-matplotlib.rcParams.update({'font.size': 6})
+matplotlib.rcParams.update({'font.size': 8})
 import matplotlib.pyplot as plt
 f21cm  = 1420.4057517667
 def main():
