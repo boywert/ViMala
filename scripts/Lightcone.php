@@ -88,7 +88,7 @@ def main():
     y = hist[0]
     x = numpy.zeros_like(y)
     for i in range(len(hist[0])):
-        x[i] = 0.5*(hist[1,i]+hist[1,i+1])
+        x[i] = 0.5*(hist[1][i]+hist[1][i+1])
     print x,y
     return 0
 if __name__ == "__main__":
