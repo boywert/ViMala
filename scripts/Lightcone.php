@@ -78,8 +78,7 @@ def main():
 
     
     fig.savefig("lightcone.png")
-    fig.close()
-    fig = plt.figure()
+    plt.close(fig)
 
     ax1 = fig.add_subplot(111)
     sql = "SELECT DeltaFrequency FROM Lightcone WHERE ((PosTheta > 70.0*(3.142/180.0) AND PosTheta < 80.0*(3.142/180.0)))"
@@ -97,7 +96,7 @@ def main():
     ax1.set_xlabel(r"$\log_{10} (\Delta \nu/Hz)$")
     ax1.set_ylabel(r"$\log_{10} N$")
     fig.savefig("DeltaF.pdf")
-    fig.close()
+    plt.close(fig)
     return 0
 if __name__ == "__main__":
     main()
