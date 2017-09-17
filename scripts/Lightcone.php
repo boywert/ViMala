@@ -78,7 +78,7 @@ def main():
 
     
     fig.savefig("lightcone.png")
-    close(fig)
+    fig.close()
     fig = plt.figure()
 
     ax1 = fig.add_subplot(111)
@@ -97,6 +97,7 @@ def main():
     ax1.set_xlabel(r"$\log_{10} (\Delta \nu/Hz)$")
     ax1.set_ylabel(r"$\log_{10} N$")
     fig.savefig("DeltaF.pdf")
+    fig.close()
     return 0
 if __name__ == "__main__":
     main()
