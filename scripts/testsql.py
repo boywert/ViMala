@@ -8,10 +8,10 @@ from config import *
 def main():
     cnx = mysql.connector.connect(host="192.168.2.48",user='ViMala',password="ViMala@Sql", database='ViMala')
     cur = cnx.cursor()
-    sql = "DROP TABLE ` DBSTRUCT`"
+    sql = "DROP TABLE `DBSTRUCT`"
     cur.execute(sql)
     cnx.commit()
-    sql = "CREATE TABLE `ViMala`.`DBSTRUCT` ( `ID` INT NOT NULL , `FIELD` TEXT NOT NULL , `DESCRIPTION` TEXT NOT NULL , `TYPE` TEXT NOT NULL ) ENGINE = InnoDB;"
+    sql = "CREATE TABLE `DBSTRUCT` ( `ID` INT NOT NULL , `FIELD` TEXT NOT NULL , `DESCRIPTION` TEXT NOT NULL , `TYPE` TEXT NOT NULL ) ENGINE = InnoDB;"
 
     cur.execute(sql)
     cnx.commit()
