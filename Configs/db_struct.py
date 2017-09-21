@@ -24,5 +24,5 @@ db_struct = numpy.dtype([
     ('Flux'                 , numpy.float32)
 ])
 
-for x in db_struct:
+for x in db_struct.names:
     print x
