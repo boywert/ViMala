@@ -1,5 +1,6 @@
 import sys
 sys.path.append("../")
+sys.path.append("../lib/")
 sys.path.append("../python/")
 from config import *
 from astropy.cosmology import FlatLambdaCDM
@@ -18,7 +19,7 @@ import timeit
 from numpy.ctypeslib import ndpointer
 from ctypes import CDLL, POINTER, c_int, c_float, c_double
 #import test as mymodule
-mymodule = CDLL('./test.so')
+mymodule = CDLL('../libsphere.so')
 _twodimp = ndpointer(dtype=c_float,ndim=2)
 _onedimp = ndpointer(dtype=c_float,ndim=1)
 arg2 = ndpointer(ndim=2)
