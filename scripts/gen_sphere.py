@@ -19,7 +19,7 @@ import timeit
 from numpy.ctypeslib import ndpointer
 from ctypes import CDLL, POINTER, c_int, c_float, c_double
 #import test as mymodule
-mymodule = CDLL('../libsphere.so')
+mymodule = CDLL('../lib/libsphere.so')
 _twodimp = ndpointer(dtype=c_float,ndim=2)
 _onedimp = ndpointer(dtype=c_float,ndim=1)
 arg2 = ndpointer(ndim=2)
