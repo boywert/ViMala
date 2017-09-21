@@ -14,7 +14,7 @@ def main():
     i = 0
     for field in db_struct.names:
         add_field = ("INSERT INTO `ViMala`.`DBSTRUCT` (ID, FIELD, DESCRIPTION, TYPE) VALUES ("+str(i)+",%s , %s, %s)") 
-        field_data = (field,"Description",db_struct[field])
+        field_data = (str(field),"Description",str(db_struct[field]))
         cur.execute(add_field,field_data)
     cnx.commit()
     cnx.close()
