@@ -1,0 +1,22 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -N Lightcone
+#$ -cwd
+#$ -j y
+#$ -m be
+#$ -V
+#$ -o  log_batch/$JOB_NAME_$TASK_ID.log
+#$ -t 1-512
+#$ -tc 1000
+
+
+i=$(($SGE_TASK_ID -1))
+echo Running on file $i
+ff=$(($i))
+lf=$(($i))
+
+
+# Run jobs
+cd scripts
+python gen_sphere.py $i
+cd ..
