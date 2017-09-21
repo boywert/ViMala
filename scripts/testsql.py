@@ -1,5 +1,6 @@
 import mysql.connector
 cnx = mysql.connector.connect(host="192.168.2.48",user='ViMala',password="ViMala@Sql", database='ViMala')
+
 sql = "CREATE TABLE IF NOT EXISTS `ViMala`.`DBSTRUCT` ( `ID` INT NOT NULL , `FIELD` TEXT NOT NULL , `DESCRIPTION` TEXT NOT NULL , `TYPE` TEXT NOT NULL ) ENGINE = InnoDB;"
 cur = cnx.cursor()
 cur.execute(sql)
