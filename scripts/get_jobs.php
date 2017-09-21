@@ -26,6 +26,7 @@ if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
             if($conds != "")
                 $sql .= " WHERE ". $conds;
             echo $sql;
+            echo "\n";
         }
     }
 }

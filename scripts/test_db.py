@@ -1,11 +1,15 @@
+import sys
+sys.path.append("../")
+sys.path.append("../lib/")
+sys.path.append("../python/")
+from config import *
+
 from astropy.cosmology import FlatLambdaCDM
-cosmo = FlatLambdaCDM(H0=73, Om0=0.25, Tcmb0=2.725)
+cosmo = FlatLambdaCDM(H0=hubble_h*100.0, Om0=OmegaM)
+
 import tables
 from mass_fn import *
-from globalconf import *
 from math import *
-import matplotlib
-import pylab
 import sys
 import numpy
 import os
@@ -29,29 +33,6 @@ import healpy
 from timeit import default_timer as timer
 rank = "0"
 os.system("mkdir -p ../tmp/"+rank)
-db_struct = numpy.dtype([
-    ('PosX'                      , numpy.float32),
-    ('PosY'                      , numpy.float32),
-    ('PosZ'                      , numpy.float32),
-    ('PosR'                      , numpy.float32),
-    ('PosTheta'                  , numpy.float32),
-    ('PosPhi'                    , numpy.float32),
-    ('VelX'                      , numpy.float32),
-    ('VelY'                      , numpy.float32),
-    ('VelZ'                      , numpy.float32),
-    ('VelR'                      , numpy.float32),
-    ('VelTheta'                  , numpy.float32),
-    ('VelPhi'                    , numpy.float32),
-    ('StellarMass'               , numpy.float32),
-    ('ColdGas'                   , numpy.float32), 
-    ('Healpix'                   , numpy.int32),
-    ('Frequency'                 , numpy.float32),
-    ('LuminosityDistance'        , numpy.float32),
-    ('Redshift'                  , numpy.float32),
-    ('NeutralH'                  , numpy.float32),
-    ('DeltaFrequency'            , numpy.float32),
-    ('FluxDensity'               , numpy.float32),
-    ('Flux'                 , numpy.float32)])
 
 def loadfilter(structfile):
     sys.path.insert(0,"../tmp/"+rank)
@@ -102,12 +83,6 @@ model_labels = model_labels_tmp
 model_paths = model_paths_tmp       
 
 
-
-pylab.rc('text', usetex=True)
-pylab.rc('lines', linewidth=2)
-plt.rcParams['ytick.major.size'] = 8
-plt.rcParams['xtick.major.size'] = 8
-#zlist = open(zlistfile,"r").readlines()
 
 NSIDE = 2048
 f21cm  = 1420.4057517667 #MHz
@@ -179,6 +154,7 @@ def main():
             return 1
     extend = ",".join(createdbsql)
     sql = "CREATE TABLE IF not exists lightcone ("+ extend +")"
+    print sql
     print sql
     c.execute(sql)
     extend = ",".join(questionmarksql)
