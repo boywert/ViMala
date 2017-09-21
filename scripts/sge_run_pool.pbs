@@ -17,6 +17,5 @@ lf=$(($i))
 
 
 # Run jobs
-cd scripts
 python gen_sphere.py $i
-cd ..
+
