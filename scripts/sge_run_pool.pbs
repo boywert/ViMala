@@ -15,7 +15,7 @@ echo Running on file $i
 ff=$(($i))
 lf=$(($i))
 
-
+pwd
 # Run jobs
-python gen_sphere.py $i
+#python gen_sphere.py $i
 
