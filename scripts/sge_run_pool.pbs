@@ -16,6 +16,7 @@ ff=$(($i))
 lf=$(($i))
 
 pwd
-# Run jobs
-#python gen_sphere.py $i
 
+cd scripts
+python gen_sphere.py $i
+cd ..
