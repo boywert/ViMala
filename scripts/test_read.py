@@ -1,15 +1,18 @@
-from globalconf import *
+import sys
+sys.path.append("../")
+sys.path.append("../python/")
+from config import *
 from astropy.cosmology import FlatLambdaCDM
 cosmo = FlatLambdaCDM(H0=hubble_h*100.0, Om0=OmegaM)
 
 from math import *
-import sys
+
 import numpy
 import os
 os.system("cp dummy_dtype.py LGalaxyStruct.py")
 import LGalaxyStruct
 import add_observations
-sys.path.append("../python/")
+
 import read_lgal_advance as read_lgal
 import timeit
 from numpy.ctypeslib import ndpointer
