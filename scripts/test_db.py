@@ -5,7 +5,6 @@ from mass_fn import *
 from globalconf import *
 from math import *
 import matplotlib
-matplotlib.use('Agg') 
 import pylab
 import sys
 import numpy
