@@ -213,7 +213,8 @@ def gen_lightcone(dataset,dataname,file):
     for i in range(len(gals)):
         db_gal[first_gal:first_gal+totalNgals[i]] = gals[i]
         first_gal += totalNgals[i]
-    numpy.save('model_%s_%d.npy'%(dataname,file),db_gal)
+    sys.execute("mkdir -p tmp")
+    numpy.save('tmp/model_%s_%d.npy'%(dataname,file),db_gal)
     sys.stdout.flush()
     return
 
