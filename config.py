@@ -22,6 +22,7 @@ db_struct = numpy.dtype([
     ('ColdGas'                   , numpy.float32),
     ('Healpix'                   , numpy.int32),
     ('LuminosityDistance'        , numpy.float32),
+    ('Frequency'                  , numpy.float32),
     ('Redshift'                  , numpy.float32),
     ('NeutralH'                  , numpy.float32),
     ('DeltaFrequency'            , numpy.float32),
