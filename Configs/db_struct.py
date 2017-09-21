@@ -25,4 +25,4 @@ db_struct = numpy.dtype([
 ])
 
 for x in db_struct.names:
-    print x
+    print x,db_struct[x]
