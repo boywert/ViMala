@@ -1,0 +1,10 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -N SQL
+#$ -cwd
+#$ -j y
+#$ -m be
+#$ -V
+
+
+python submission.py $1 $2

@@ -155,7 +155,7 @@ def main():
     extend = ",".join(createdbsql)
     sql = "CREATE TABLE IF not exists lightcone ("+ extend +")"
     print sql
-    return 0
+
 
     c.execute(sql)
     extend = ",".join(questionmarksql)
