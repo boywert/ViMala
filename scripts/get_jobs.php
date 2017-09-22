@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
 //echo "first\n";
 $servername = "192.168.2.48";
 $username = "ViMala";
@@ -19,7 +18,7 @@ if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
         echo "more than 0\n";
         while ($row = $result->fetch_assoc()) {
             $row['PARAMS'][0] = "";
-$id = $row['ID'];
+            $id = $row['ID'];
             $field_array = explode("|",$row['PARAMS']);
             unset($field_array[count($field_array)-1]);
             $string = implode(",", $field_array);
@@ -27,13 +26,13 @@ $id = $row['ID'];
             $sql = "SELECT ". $string . " FROM Lightcone";
             if($conds != "")
                 $sql .= " WHERE ". $conds;
-$sql = "'$sql'";
+            $sql = "'$sql'";
             echo "\n";
-$cmd = "qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs ".$id." ".$sql;
-echo $cmd;
-echo "\n";
-system($cmd,$return_value);
-($return_value == 0) or die("returned an error: $cmd");
+            $cmd = "qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs ".$id." ".$sql;
+
+            system($cmd,$return_value);
+            ($return_value == 0) or die("returned an error: $cmd");
+
         }
     }
 }
