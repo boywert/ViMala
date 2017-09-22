@@ -29,7 +29,8 @@ $id = $row['ID'];
                 $sql .= " WHERE ". $conds;
             
             echo "\n";
-$command = 'qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs "'.$id.'" "'.$sql.'"';
+$command = "qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs \"".$id."\" \"".$sql."\"";
+echo "\n";
 echo $command;
             system($command);
         }
