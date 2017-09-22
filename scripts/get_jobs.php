@@ -29,10 +29,11 @@ $id = $row['ID'];
                 $sql .= " WHERE ". $conds;
 $sql = "'$sql'";
             echo "\n";
-$command = "qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs ".$id." ".$sql;
-echo $command;
+$cmd = "qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs ".$id." ".$sql;
+echo $cmd;
 echo "\n";
-system($command);
+system($cmd,$return_value);
+($return_value == 0) or die("returned an error: $cmd");
         }
     }
 }
