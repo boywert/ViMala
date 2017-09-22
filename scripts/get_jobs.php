@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 //echo "first\n";
 $servername = "192.168.2.48";
 $username = "ViMala";
@@ -26,7 +27,7 @@ if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
             if($conds != "")
                 $sql .= " WHERE ". $conds;
             echo $sql;
-            system('qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs \"'.$sql.'\"')
+            system('qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs \"'.$sql.'\"');
             echo "\n";
         }
     }
