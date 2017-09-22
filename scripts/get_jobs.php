@@ -27,7 +27,7 @@ $id = $row['ID'];
             $sql = "SELECT ". $string . " FROM Lightcone";
             if($conds != "")
                 $sql .= " WHERE ". $conds;
-$sql = "\"".$sql."\"";
+$sql = "'.$sql.'";
             echo "\n";
 $command = "qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs ".$id." ".$sql;
 echo $command;
