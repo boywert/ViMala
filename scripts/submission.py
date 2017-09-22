@@ -11,22 +11,11 @@ def main():
     print "Reading SQLite3 table"
     conn = sqlite3.connect('/share/data2/VIMALA/Lightcone/example.db')
     c = conn.cursor()
-    sql = "SELECT PosPhi,Redshift FROM Lightcone WHERE (Flux > 1700 AND PosTheta > 0 AND PosTheta < 80.0*(3.142/180.0))"
     cursor = c.execute(sql)
     result = cursor.fetchall()
-    coor = numpy.array(result)
-    print len(coor)
-    print numpy.histogram(coor[:,0]/numpy.pi*180,bins=180)
-    print numpy.histogram(coor[:,1],bins=18)
-    #for a in coor:
-    #    print a
-    fig = plt.figure(figsize=(8, 6),dpi=240)
-    ax = fig.add_subplot(111, polar=True)
-    ax.scatter(coor[:,1]/numpy.pi*180,coor[:,0],s=0.1,marker=".")
-    ax.grid(True)
-    ax.set_ylim(0.0,0.16)
-    ax.set_rlabel_position(0)
-    fig.savefig("lightcone.png")
+    f = open("/data2/VIMALA_output/"+job_id+".txt")
+    for x in result:
+        print >> f, x
     return 0
 if __name__ == "__main__":
     main()
