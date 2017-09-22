@@ -18,6 +18,9 @@ def main():
     f = open("/share/data2/VIMALA_output/"+job_id+".txt", "w+")
     for x in result:
         print >> f, x
+    sql = "UPDATE JobSubmission SET STATUS = 2 WHERE ID = "+job_id
+    cursor = c.execute(sql)
+    cursor = c.commit()
     return 0
 if __name__ == "__main__":
     main()
