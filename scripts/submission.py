@@ -17,10 +17,8 @@ def main():
         field_data = row[0].split("|")
         field_data.remove("")
         field_data.remove("condition")
-        #row['CONDITIONS'][0] = ""
-        #field_data = row[1].split("|")
-        #field_data.remove('condition')
-    print field_data
+    sql = 'SELECT '+','.join(field_data)
+    print sql
     return 0
     sql = sql + " LIMIT 10"
     print "Reading SQLite3 table"
