@@ -21,7 +21,6 @@ def main():
         if row[1] != "":
             sql = sql + " WHERE " + row[1]
     print sql
-    return 0
     sql = sql + " LIMIT 10"
     print "Reading SQLite3 table"
     conn = sqlite3.connect('/share/data2/VIMALA/Lightcone/example.db')
