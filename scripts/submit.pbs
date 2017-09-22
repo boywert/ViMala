@@ -6,5 +6,4 @@
 #$ -m be
 #$ -V
 
-
-python submission.py '$1' '$2'
+python submission.py "$1" "$2"

@@ -6,6 +6,7 @@ matplotlib.rcParams.update({'font.size': 6})
 import matplotlib.pyplot as plt
 f21cm  = 1420.4057517667
 def main():
+    print sys.argv
     job_id = sys.argv[1]
     sql = sys.argv[2]
     print "Reading SQLite3 table"
