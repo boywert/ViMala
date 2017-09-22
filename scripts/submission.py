@@ -9,7 +9,16 @@ f21cm  = 1420.4057517667
 def main():
     print sys.argv
     job_id = sys.argv[1]
-    sql = sys.argv[2]
+    cnx = mysql.connector.connect(host="192.168.2.48",user='ViMala',password="ViMala@Sql", database='ViMala')
+    cur = cnx.cursor()
+    sql  = "SELECT ID,PARAMS,CONDITIONS FROM JobSubmission WHERE ID = %d AND STATUS = 0 LIMIT 1"
+    cur.execute(sql,(job_id))
+    for (id,params,cond) in cur:
+        cond[0] = ""
+        field_data = cond.split("|")
+        field_data.remove('condition')
+    print field_data
+    return 0
     sql = sql + " LIMIT 10"
     print "Reading SQLite3 table"
     conn = sqlite3.connect('/share/data2/VIMALA/Lightcone/example.db')
@@ -19,8 +28,7 @@ def main():
     f = open("/share/data2/VIMALA_output/"+job_id+".txt", "w+")
     for x in result:
         print >> f, x
-    cnx = mysql.connector.connect(host="192.168.2.48",user='ViMala',password="ViMala@Sql", database='ViMala')
-    cur = cnx.cursor()
+   
     sql = "UPDATE JobSubmission SET STATUS = 2 WHERE ID = "+job_id
     cur.execute(sql)
     cnx.commit()
