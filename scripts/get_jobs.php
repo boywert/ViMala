@@ -31,8 +31,7 @@ if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
             $cmd = "qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs ".$id." ".$sql;
 
             system($cmd,$return_value);
-            ($return_value == 0) or die("returned an error: $cmd");
-
+            ($return_value == 0) or die("returned an error: $cmd\n");
         }
     }
 }
