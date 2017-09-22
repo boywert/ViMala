@@ -33,7 +33,7 @@ def main():
     result = cursor.fetchall()
     f = open("/share/data2/VIMALA_output/"+job_id+".txt", "w+")
     for x in result:
-        print >> f, " ".join(x)
+        print >> f, ",".join(x)
    
     sql = "UPDATE JobSubmission SET STATUS = 2 WHERE ID = "+job_id
     cur.execute(sql)
