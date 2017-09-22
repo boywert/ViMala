@@ -27,9 +27,11 @@ $id = $row['ID'];
             $sql = "SELECT ". $string . " FROM Lightcone";
             if($conds != "")
                 $sql .= " WHERE ". $conds;
-$sql = escapeshellarg("\"".$sql."\"");
+$sql = "'".$sql."'";
             echo "\n";
-$command = "qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs ".$id." ".$sql;
+$command = <<<'EOD'
+"qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs ".$id." ".$sql;
+EOD;
 echo $command;
 echo "\n";
 system($command);
