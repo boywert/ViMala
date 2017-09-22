@@ -23,6 +23,8 @@ def main():
     sql = sql + " LIMIT 10"
     print "Construct SQL command"
     print sql
+    cnx.commit()
+
     print "Reading SQLite3 table"
     conn = sqlite3.connect('/share/data2/VIMALA/Lightcone/example.db')
     c = conn.cursor()
@@ -32,6 +34,7 @@ def main():
     for x in result:
         print >> f, x
    
+
     sql = "UPDATE JobSubmission SET STATUS = 2 WHERE ID = "+job_id
     cur.execute(sql)
     cnx.commit()
