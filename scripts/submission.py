@@ -15,7 +15,7 @@ def main():
     c = conn.cursor()
     cursor = c.execute(sql)
     result = cursor.fetchall()
-    f = open("/data2/VIMALA_output/"+job_id+".txt")
+    f = open("/data2/VIMALA_output/"+job_id+".txt", "w+")
     for x in result:
         print >> f, x
     return 0
