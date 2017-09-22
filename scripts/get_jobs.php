@@ -32,7 +32,7 @@ $id = $row['ID'];
 $command = "qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs ".$id."  "."'".$sql."'";
 echo $command;
 echo "\n";
-system(escapeshellarg($command));
+system(escapeshellcmd($command));
         }
     }
 }
