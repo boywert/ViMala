@@ -16,7 +16,7 @@ def main():
     for row in cur:
         #row['CONDITIONS'][0] = ""
         field_data = row[1].split("|")
-        field_data.remove('condition')
+        #field_data.remove('condition')
     print field_data
     return 0
     sql = sql + " LIMIT 10"
