@@ -13,10 +13,10 @@ def main():
     cur = cnx.cursor()
     sql  = "SELECT PARAMS,CONDITIONS FROM JobSubmission WHERE ID = "+str(job_id)+" LIMIT 1"
     cur.execute(sql)
-    print cur
     for row in cur:
+        print row
         #row['CONDITIONS'][0] = ""
-        field_data = row[1].split("|")
+        #field_data = row[1].split("|")
         #field_data.remove('condition')
     print field_data
     return 0
