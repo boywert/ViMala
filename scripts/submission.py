@@ -9,6 +9,7 @@ def main():
     print sys.argv
     job_id = sys.argv[1]
     sql = sys.argv[2]
+    sql = sql + " LIMIT 10"
     print "Reading SQLite3 table"
     conn = sqlite3.connect('/share/data2/VIMALA/Lightcone/example.db')
     c = conn.cursor()
