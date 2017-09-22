@@ -19,6 +19,7 @@ if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
         echo "more than 0\n";
         while ($row = $result->fetch_assoc()) {
             $row['PARAMS'][0] = "";
+            
             $field_array = explode("|",$row['PARAMS']);
             unset($field_array[count($field_array)-1]);
             $string = implode(",", $field_array);
@@ -27,8 +28,9 @@ if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
             if($conds != "")
                 $sql .= " WHERE ". $conds;
             echo $sql;
-            system('qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs \"'.$sql.'\"');
             echo "\n";
+            system('qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs \"'.$sql.'\"');
+
         }
     }
 }
