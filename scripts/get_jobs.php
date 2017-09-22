@@ -29,9 +29,7 @@ $id = $row['ID'];
                 $sql .= " WHERE ". $conds;
 $sql = "'".$sql."'";
             echo "\n";
-$command = <<<'EOD'
-"qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs ".$id." ".$sql;
-EOD;
+$command = "qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs ".$id." ".$sql;
 echo $command;
 echo "\n";
 system($command);
