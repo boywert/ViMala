@@ -2,6 +2,7 @@ import sqlite3
 import sys
 import numpy
 import matplotlib
+import mysql.connector
 matplotlib.rcParams.update({'font.size': 6})
 import matplotlib.pyplot as plt
 f21cm  = 1420.4057517667
@@ -18,9 +19,11 @@ def main():
     f = open("/share/data2/VIMALA_output/"+job_id+".txt", "w+")
     for x in result:
         print >> f, x
+    cnx = mysql.connector.connect(host="192.168.2.48",user='ViMala',password="ViMala@Sql", database='ViMala')
+    cur = cnx.cursor()
     sql = "UPDATE JobSubmission SET STATUS = 2 WHERE ID = "+job_id
-    cursor = c.execute(sql)
-    cursor = c.commit()
+    cur.execute(sql)
+    cnx.commit()
     return 0
 if __name__ == "__main__":
     main()
