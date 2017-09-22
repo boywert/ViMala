@@ -14,7 +14,7 @@ def main():
     sql  = "SELECT PARAMS,CONDITIONS FROM JobSubmission WHERE ID = "+str(job_id)+" LIMIT 1"
     cur.execute(sql)
     for row in cur:
-        print row
+        print row.split("|")
         #row['CONDITIONS'][0] = ""
         #field_data = row[1].split("|")
         #field_data.remove('condition')
