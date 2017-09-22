@@ -29,6 +29,7 @@ def main():
     conn = sqlite3.connect('/share/data2/VIMALA/Lightcone/example.db')
     c = conn.cursor()
     cursor = c.execute(sql)
+    print c,cursor
     result = cursor.fetchall()
     f = open("/share/data2/VIMALA_output/"+job_id+".txt", "w+")
     for x in result:
