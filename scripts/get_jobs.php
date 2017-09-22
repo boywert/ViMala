@@ -28,7 +28,7 @@ if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
                 $sql .= " WHERE ". $conds;
             $sql = "'$sql'";
             echo "\n";
-            $cmd = "qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs ".$id." ".$sql;
+            $cmd = "qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs ".$id.";
 
             system($cmd,$return_value);
             ($return_value == 0) or die("returned an error: $cmd\n");
