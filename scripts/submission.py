@@ -34,7 +34,6 @@ def main():
     for x in result:
         print >> f, x
    
-
     sql = "UPDATE JobSubmission SET STATUS = 2 WHERE ID = "+job_id
     cur.execute(sql)
     cnx.commit()
