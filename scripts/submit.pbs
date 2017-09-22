@@ -5,6 +5,6 @@
 #$ -j y
 #$ -m be
 #$ -V
-#$ -o SQL.$.log
+#$ -o /lustre/HI_FAST/ViMala/SQL.${JOB_ID}.log
 cd /lustre/HI_FAST/ViMala/scripts
 python submission.py "$1"
