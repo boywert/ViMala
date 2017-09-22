@@ -12,7 +12,8 @@ def main():
     cnx = mysql.connector.connect(host="192.168.2.48",user='ViMala',password="ViMala@Sql", database='ViMala')
     cur = cnx.cursor()
     sql  = "SELECT PARAMS,CONDITIONS FROM JobSubmission WHERE ID = "+str(job_id)+" LIMIT 1"
-    cur.execute(sql,(str(job_id)))
+    cur.execute(sql)
+    print cur
     for row in cur:
         #row['CONDITIONS'][0] = ""
         field_data = row[1].split("|")
