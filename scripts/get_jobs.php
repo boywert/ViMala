@@ -26,6 +26,7 @@ if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
             if($conds != "")
                 $sql .= " WHERE ". $conds;
             echo $sql;
+            system('qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs \"'.$sql.'\"')
             echo "\n";
         }
     }
