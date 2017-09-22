@@ -30,8 +30,8 @@ $id = $row['ID'];
             
             echo "\n";
 $command = "qsub /lustre/HI_FAST/ViMala/scripts/submit.pbs ".$id."  '".$sql."'";
-echo "\n";
 echo $command;
+echo "\n";
             system($command);
         }
     }
