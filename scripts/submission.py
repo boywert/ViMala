@@ -17,7 +17,7 @@ def main():
         field_data = row[0].split("|")
         field_data.remove("")
         field_data.remove("condition")
-        sql = 'SELECT '+','.join(field_data)
+        sql = 'SELECT '+','.join(field_data) + ' FROM Lightcone '
         if row[1] != "":
             sql = sql + " WHERE " + row[1]
     sql = sql + " LIMIT 10"
