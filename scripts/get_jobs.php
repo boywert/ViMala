@@ -19,7 +19,7 @@ if($result = $mysqli->query("SELECT * FROM JobSubmission WHERE STATUS = 0")) {
         echo "more than 0\n";
         while ($row = $result->fetch_assoc()) {
             $row['PARAMS'][0] = "";
-            $id = $row['ID']
+$id = $row['ID'];
             $field_array = explode("|",$row['PARAMS']);
             unset($field_array[count($field_array)-1]);
             $string = implode(",", $field_array);
