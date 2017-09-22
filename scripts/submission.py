@@ -11,7 +11,7 @@ def main():
     job_id = sys.argv[1]
     cnx = mysql.connector.connect(host="192.168.2.48",user='ViMala',password="ViMala@Sql", database='ViMala')
     cur = cnx.cursor()
-    sql  = "SELECT ID,PARAMS,CONDITIONS FROM JobSubmission WHERE ID = %s AND STATUS = 0 LIMIT 1"
+    sql  = "SELECT ID,PARAMS,CONDITIONS FROM JobSubmission WHERE ID = "+str(job_id)+" AND STATUS = 0 LIMIT 1"
     cur.execute(sql,(str(job_id)))
     for (id,params,cond) in cur:
         cond[0] = ""
